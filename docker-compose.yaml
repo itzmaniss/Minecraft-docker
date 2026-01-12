@@ -1,0 +1,40 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: minecraft-server
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    ports:
+      - "25565:25565"
+      - "19132:19132/udp"
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      VERSION: "LATEST"
+      
+      # --- MEMORY SETTINGS ---
+      # Updated to 8GB as requested.
+      # CRITICAL: Ensure your MiniPC has at least 10GB-12GB total RAM installed.
+      MEMORY: "8G"
+      
+      # --- PERFORMANCE ---
+      USE_AIKAR_FLAGS: "true"
+      
+      # --- POWER SAVING ---
+      ENABLE_AUTOPAUSE: "true"
+      AUTOPAUSE_TIMEOUT_EST: 600
+      
+      # --- PLUGINS ---
+      PLUGINS: |
+        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
+        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+        https://download.geysermc.org/v2/projects/viaversion/versions/latest/builds/latest/downloads/spigot
+
+      MODRINTH_PROJECTS: "drivebackupv2"
+
+    volumes:
+      - mc-data:/data
+
+volumes:
+  mc-data:
