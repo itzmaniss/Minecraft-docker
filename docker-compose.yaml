@@ -29,14 +29,35 @@ services:
 
       MODRINTH_PROJECTS: "viaversion,drivebackupv2"
 
+      # Copy custom configs from /config to /data on startup
+      COPY_CONFIG_DEST: /data
+
+      # Server.properties configuration via environment variables
+      DIFFICULTY: "normal"
+      MODE: "survival"
+      MOTD: "itzmaniss Minecraft Server"
+      MAX_PLAYERS: 20
+      VIEW_DISTANCE: 16
+      SIMULATION_DISTANCE: 12
+      ALLOW_FLIGHT: "false"
+      ONLINE_MODE: "true"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "password"
+      RCON_PORT: 25575
+      SPAWN_PROTECTION: 16
+      MAX_WORLD_SIZE: 29999984
+      GENERATE_STRUCTURES: "true"
+      LEVEL_TYPE: "minecraft:normal"
+      HARDCORE: "false"
+      FORCE_GAMEMODE: "false"
+      GAMEMODE: "survival"
+
     volumes:
       - mc-data:/data
 
-      # ---- GITOPS CONFIG MOUNTS ----
-      - ./config/server.properties:/data/server.properties
-      - ./config/spigot.yml:/data/spigot.yml
-      - ./config/paper-global.yml:/data/config/paper-global.yml
-      - ./config/paper-world-defaults.yml:/data/config/paper-world-defaults.yml
+      # ---- GITOPS CONFIG MOUNT ----
+      # Mount entire config directory - files will be copied to /data on startup
+      - ./config:/config:ro
 
 volumes:
   mc-data:
