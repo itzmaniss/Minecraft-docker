@@ -1,46 +1,42 @@
 services:
   mc:
     image: itzg/minecraft-server
-    container_name: minecraft-server
+    container_name: minecraft-technical-smp
     tty: true
     stdin_open: true
     restart: unless-stopped
+
     ports:
-      - "25565:25565" # Java Port
-      - "19132:19132/udp" # Bedrock Port
+      - "25565:25565"
+      - "19132:19132/udp"
+
     environment:
       EULA: "TRUE"
       TYPE: "PAPER"
       VERSION: "LATEST"
-
-      # --- MEMORY ---
-      # You have plenty of RAM now. 8GB is great for a heavy technical server.
       MEMORY: "8G"
 
-      # --- OPTIMIZATION ---
       USE_AIKAR_FLAGS: "true"
 
-      # --- POWER SAVING ---
-      # Pauses server after 10 mins (600s) of inactivity.
-      # Essential for MiniPCs to prevent overheating/SSD wear.
       ENABLE_AUTOPAUSE: "true"
       AUTOPAUSE_TIMEOUT_EST: 600
 
-      # --- CROSS-PLAY (Geyser + Floodgate) ---
-      # These use the official CI API to get the absolute latest Bedrock support.
-      # These specific URLs are verified for the 'itzg' container.
+      FIX_OWNERSHIP: "true"
+
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
-      # --- UTILITY PLUGINS (Modrinth) ---
-      # 'viaversion' allows older clients to join (good for compatibility).
-      # 'drivebackupv2' handles your backups.
-      # The container will auto-find the correct .jar for Paper.
-      MODRINTH_PROJECTS: "viaversion, drivebackupv2"
+      MODRINTH_PROJECTS: "viaversion,drivebackupv2"
 
     volumes:
       - mc-data:/data
+
+      # ---- GITOPS CONFIG MOUNTS ----
+      - ./config/server.properties:/data/server.properties
+      - ./config/spigot.yml:/data/spigot.yml
+      - ./config/paper-global.yml:/data/config/paper-global.yml
+      - ./config/paper-world-defaults.yml:/data/config/paper-world-defaults.yml
 
 volumes:
   mc-data:
