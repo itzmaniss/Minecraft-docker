@@ -6,32 +6,38 @@ services:
     stdin_open: true
     restart: unless-stopped
     ports:
-      - "25565:25565"
-      - "19132:19132/udp"
+      - "25565:25565" # Java Port
+      - "19132:19132/udp" # Bedrock Port
     environment:
       EULA: "TRUE"
       TYPE: "PAPER"
       VERSION: "LATEST"
-      
-      # --- MEMORY SETTINGS ---
-      # Updated to 8GB as requested.
-      # CRITICAL: Ensure your MiniPC has at least 10GB-12GB total RAM installed.
+
+      # --- MEMORY ---
+      # You have plenty of RAM now. 8GB is great for a heavy technical server.
       MEMORY: "8G"
-      
-      # --- PERFORMANCE ---
+
+      # --- OPTIMIZATION ---
       USE_AIKAR_FLAGS: "true"
-      
+
       # --- POWER SAVING ---
+      # Pauses server after 10 mins (600s) of inactivity.
+      # Essential for MiniPCs to prevent overheating/SSD wear.
       ENABLE_AUTOPAUSE: "true"
       AUTOPAUSE_TIMEOUT_EST: 600
-      
-      # --- PLUGINS ---
+
+      # --- CROSS-PLAY (Geyser + Floodgate) ---
+      # These use the official CI API to get the absolute latest Bedrock support.
+      # These specific URLs are verified for the 'itzg' container.
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
-        https://download.geysermc.org/v2/projects/viaversion/versions/latest/builds/latest/downloads/spigot
 
-      MODRINTH_PROJECTS: "drivebackupv2"
+      # --- UTILITY PLUGINS (Modrinth) ---
+      # 'viaversion' allows older clients to join (good for compatibility).
+      # 'drivebackupv2' handles your backups.
+      # The container will auto-find the correct .jar for Paper.
+      MODRINTH_PROJECTS: "viaversion, drivebackupv2"
 
     volumes:
       - mc-data:/data
