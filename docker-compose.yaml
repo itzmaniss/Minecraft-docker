@@ -18,8 +18,8 @@ services:
 
       USE_AIKAR_FLAGS: "true"
 
-      ENABLE_AUTOPAUSE: "true"
-      AUTOPAUSE_TIMEOUT_EST: 600
+      ENABLE_AUTOPAUSE: "false"
+      # AUTOPAUSE_TIMEOUT_EST: 600
 
       FIX_OWNERSHIP: "true"
 
@@ -27,7 +27,7 @@ services:
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
-      MODRINTH_PROJECTS: "viaversion,drivebackupv2"
+      MODRINTH_PROJECTS: "viaversion, viabackwards, drivebackupv2"
 
       # Copy custom configs from /config to /data on startup
       COPY_CONFIG_DEST: /data
@@ -53,11 +53,7 @@ services:
       GAMEMODE: "survival"
 
     volumes:
-      - mc-data:/data
-
+      - /home/itzmaniss/coolify/minecraft:/data
       # ---- GITOPS CONFIG MOUNT ----
       # Mount entire config directory - files will be copied to /data on startup
       - ./config:/config:ro
-
-volumes:
-  mc-data:

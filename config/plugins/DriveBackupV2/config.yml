@@ -1,0 +1,64 @@
+delay: 120
+local-keep-count: 5
+keep-count: 10
+
+backup-list:
+  - glob: "world*"
+    format: "Backup-%NAME-%FORMAT.zip"
+    create: true
+# - path: "plugins"
+#   format: "Backup-plugins-%FORMAT.zip"
+#   create: true
+
+googledrive:
+  enabled: false
+  shared-drive-id: ""
+onedrive:
+  enabled: true
+dropbox:
+  enabled: false
+webdav:
+  enabled: false
+  hostname: "http://example.com/directory"
+  username: "Username"
+  password: "Password"
+nextcloud:
+  enabled: false
+  hostname: "https://example.com/remote.php/dav/files/user/"
+  username: "Username"
+  password: "Password"
+  chunk-size: 20_000_000
+s3:
+  enabled: false
+  endpoint: "https://s3.us-west-2.amazonaws.com"
+  access-key: "AKIAxxxxxxxxxxxxxxxx"
+  secret-key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  bucket: "bucket"
+ftp:
+  enabled: false
+  hostname: "ftp.example.com"
+  port: 21
+  sftp: false
+  ftps: false
+  username: "Username"
+  password: "Password"
+  sftp-public-key:
+  sftp-passphrase:
+  working-dir:
+
+messages:
+  send-in-chat: true
+  prefix: "&6[&4AutoBackup&6] "
+  default-color: "&3"
+  backup-start: "Starting auto-backup rn maight lag, but can protect your progress yk, so quit complaining"
+  backup-complete: "Backup Completed. That wasnt so hard now was it..."
+
+advanced:
+  metrics: true
+  update-check: true
+  suppress-errors: false
+  debug: false
+  date-language: "en"
+  date-timezone: "+08:00"
+  ftp-file-separator: "/"
+  backups-require-players: true
