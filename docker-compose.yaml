@@ -53,7 +53,7 @@ services:
       GAMEMODE: "survival"
 
     volumes:
-      - /home/itzmaniss/coolify/minecraft:/data
+      - ${MC_DATA_PATH}:/data
       # ---- GITOPS CONFIG MOUNT ----
       # Mount entire config directory - files will be copied to /data on startup
       - ./config:/config:ro
