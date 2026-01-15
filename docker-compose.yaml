@@ -9,6 +9,8 @@ services:
     ports:
       - "25565:25565"
       - "19132:19132/udp"
+      - "25575:25575"
+      - "8080:8080"
 
     environment:
       EULA: "TRUE"
@@ -27,7 +29,9 @@ services:
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
-      MODRINTH_PROJECTS: "viaversion, viabackwards, drivebackupv2"
+      MODRINTH_PROJECTS: "viaversion, viabackwards, drivebackupv2, squaremap, chunky, tab-was-taken, placeholderapi"
+
+      PAPI_DOWNLOAD_EXPANSIONS: "Player"
 
       # Copy custom configs from /config to /data on startup
       COPY_CONFIG_DEST: /data
