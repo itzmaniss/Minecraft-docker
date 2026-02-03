@@ -29,7 +29,7 @@ services:
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
-      MODRINTH_PROJECTS: "viaversion, viabackwards, drivebackupv2, squaremap, chunky, tab-was-taken, placeholderapi, pneumono_gravestones, player-drops-head, servux"
+      MODRINTH_PROJECTS: "viaversion, viabackwards, drivebackupv2, squaremap, chunky, tab-was-taken, placeholderapi, head-drop, gravesx"
 
       PAPI_DOWNLOAD_EXPANSIONS: "Player"
 
