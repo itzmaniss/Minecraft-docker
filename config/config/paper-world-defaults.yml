@@ -157,8 +157,8 @@ entities:
         hard: default
         soft: default
       monster:
-        hard: default
-        soft: default
+        hard: 128
+        soft: 32
       underground_water_creature:
         hard: default
         soft: default
@@ -180,11 +180,11 @@ entities:
       - Pos
       - Motion
       - sleeping_pos
-    iron-golems-can-spawn-in-air: true
+    iron-golems-can-spawn-in-air: false
     max-arrow-despawn-invulnerability: 200
     monster-spawn-max-light-level: default
     non-player-arrow-despawn-rate: default
-    per-player-mob-spawns: true
+    per-player-mob-spawns: false
     scan-for-legacy-ender-dragon: true
     skeleton-horse-thunder-spawn-chance: default
     slime-spawn-height:
