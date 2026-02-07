@@ -28,6 +28,7 @@ services:
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+        https://hangarcdn.papermc.io/plugins/Kyle/Otherside/versions/1.1/PAPER/otherside-1.1.jar
 
       MODRINTH_PROJECTS: "viaversion, viabackwards, drivebackupv2, squaremap, chunky, tab-was-taken, placeholderapi, head-drop, gravesx"
 
