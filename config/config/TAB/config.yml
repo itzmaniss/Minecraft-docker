@@ -7,7 +7,7 @@ header-footer:
         - "&r&7Online players: &f%online%"
         - ""
       footer:
-        - "&7X: &f%player_x% &7Y: &f%player_y% &7Z: &f%player_z%"
+        - "&7X: %player:pos_x% &7Y: %player:pos_y% &7Z: %player:pos_z%"
         - ""
         - "<#FFFFFF>&m                                                </#FFFF00>"
         - "&r&7Please paynow to support me"

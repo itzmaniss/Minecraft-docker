@@ -10,11 +10,10 @@ services:
       - "25565:25565"
       - "19132:19132/udp"
       - "25575:25575"
-      - "8080:8080"
 
     environment:
       EULA: "TRUE"
-      TYPE: "PAPER"
+      TYPE: "FABRIC"
       VERSION: "LATEST"
       MEMORY: "8G"
 
@@ -25,14 +24,15 @@ services:
 
       FIX_OWNERSHIP: "true"
 
-      PLUGINS: |
-        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
-        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
-        https://hangarcdn.papermc.io/plugins/Kyle/Otherside/versions/1.1/PAPER/otherside-1.1.jar
+      MODS: |
+        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/fabric
 
-      MODRINTH_PROJECTS: "viaversion, viabackwards, drivebackupv2, squaremap, chunky, tab-was-taken, placeholderapi, head-drop, gravesx"
+      # https://cdn.modrinth.com/data/YlKdE5VK/versions/j78qte9T/ViaFabric-0.4.21%2B138-1.14-1.21.jar
 
-      PAPI_DOWNLOAD_EXPANSIONS: "Player"
+      MODRINTH_PROJECTS: "fabric-api, lithium, ferrite-core, krypton, floodgate, squaremap, chunky, tab-was-taken, placeholder-api, player-drops-head, player-graves, fastback"
+      # (yet to find)drivebackupv2, viafabric
+      # viaversion, viabackwards,
+      # PAPI_DOWNLOAD_EXPANSIONS: "Player"
 
       # Copy custom configs from /config to /data on startup
       COPY_CONFIG_DEST: /data
